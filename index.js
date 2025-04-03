@@ -180,3 +180,49 @@ secondGameElement.innerHTML = `${secondGame.name}`;
 
 firstGameContainer.appendChild(firstGameElement);
 secondGameContainer.appendChild(secondGameElement);
+
+/*************************************************************************************
+ * Challenge 8: Add a search bar to the page
+ * Skills used: event listeners, querySelectorAll, forEach, includes, createElement, appendChild
+ */
+
+document.getElementById('search-btn').addEventListener('click', function() {
+    let searchQuery = document.getElementById('search-bar').value.toLowerCase();
+    let gameCards = document.querySelectorAll('.game-card');
+    let gameFound = false;
+
+    gameCards.forEach(card => {
+        let gameTitle = card.querySelector('h2').innerText.toLowerCase();
+        if (gameTitle.includes(searchQuery)) {
+            card.style.display = "block";
+            gameFound = true;
+        } else {
+            card.style.display = "none";
+        }
+    });
+
+    // Check if no game was found and display a message
+    let noResultsMessage = document.getElementById('no-results');
+    if (!gameFound) {
+        if (!noResultsMessage) {
+            noResultsMessage = document.createElement('p');
+            noResultsMessage.id = 'no-results';
+            noResultsMessage.innerText = "No games found.";
+            noResultsMessage.style.color = "red";
+            noResultsMessage.style.fontSize = "18px";
+            noResultsMessage.style.textAlign = "center";
+            document.getElementById('games-container').appendChild(noResultsMessage);
+        }
+    } else {
+        if (noResultsMessage) {
+            noResultsMessage.remove();
+        }
+    }
+});
+
+// add an event listener to the search bar to trigger the search function when the Enter key is pressed
+document.getElementById('search-bar').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        document.getElementById('search-btn').click();
+    }
+});

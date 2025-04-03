@@ -5,8 +5,18 @@
     <meta name="viewport" content="width=device-width">
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
-
+  
   <body>
+    <!-- navigation bar with links to home, top games, and our games -->
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#top-games">Top Games</a></li>
+                <li><a href="#games-container">Our Games</a></li>
+            </ul>
+        </nav>
+      </header>
     <!-- header row with logo -->
     <div class="header">
         <img id="tentacles" src="assets/tentacles.png">
@@ -51,12 +61,19 @@
     <h2>Our Games</h2>
     <p>Check out each of our games below!</p>
     <div id="button-container">
+
+        <!-- search bar and search button   -->
+        <input type="text" id="search-bar" placeholder="Search for a game...">
+        <button id="search-btn">Search</button>
+
+        <!-- buttons to filter games -->
         <button id="unfunded-btn">Show Unfunded Only</button>
         <button id="funded-btn">Show Funded Only</button>
         <button id="all-btn">Show All Games</button>
     </div>
     <div id="games-container"></div>
 
+    <!-- script to run the game search and filter functions -->
     <script type="module" src="index.js"></script>
-  </body>
+  </body>   
 </html>

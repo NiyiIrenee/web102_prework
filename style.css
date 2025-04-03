@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Cabin';
-    background-color: #758190;
+    background-color: #838b96;
 }
 
 #tentacles {
@@ -11,12 +11,26 @@ body {
 
 .header {
     display: flex;
-    background-color: lightblue;
+    background-color: rgb(169, 183, 187);
     padding: 1%;
+    border-radius: 10px;
+    justify-content: center;
     align-items: center;
-    margin-left: -10px;
-    margin-right: -10px;
-    margin-top: -10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 60px;
+    box-shadow: 0 0 10px #008cff;
+    transition: box-shadow 0.3s ease-in-out;
+    animation: pulseGlow 1.5s infinite alternate;
+}
+
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 10px #cae87d;
+    }
+    100% {
+        box-shadow: 0 0 20px #008cff;
+    }
 }
 
 .stats-container {
@@ -79,4 +93,77 @@ button {
     padding: 1%;
     margin: 1%;
     border-radius: 7px;
+}
+.navbar {
+    background-color: #8b927d;
+    box-shadow: 0 0 10px #FFFFFF;
+    opacity: 0.9;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar li {
+    margin: 0 15px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #020202;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.stats-card {
+    background: linear-gradient(135deg, #829093, #b5c1c8);
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.stats-card:hover {
+    transform: scale(1.05);
+}
+
+.game-card {
+    background: #f1f1f1;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#search-bar {
+    padding: 8px;
+    width: 250px;
+    border: 2px solid #0077b6;
+    border-radius: 50px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+#search-btn {
+    padding: 8px 12px;
+    background-color: #0077b6;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#search-btn:hover {
+    background-color: #005f99;
 }
